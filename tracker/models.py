@@ -1,4 +1,6 @@
 from django.db import models
+import urllib2
+from BeautifulSoup import BeautifulSoup
 
 class Solver(models.Model):
 	timus_id = models.CharField(blank=False, max_length=42, unique=True)
@@ -12,3 +14,11 @@ class Solver(models.Model):
 
 	def total_solved(self):
 		return self.solved + self.solved_today
+
+	def update_solved(self):
+		try:
+			web_page = urllib2.urlopen("http://acm.timus.ru/author.aspx?id=" + str(self.timus_id) + "&locale=ru").read()
+			soup = BeautifulSoup(web_page)
+			self.solved = int(soup.findAll('td', attrs={'class':'author_stats_value'})[1].getText().split(" ")[0])
+		except Exception as e:
+			print "ERROR"
