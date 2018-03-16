@@ -1,0 +1,56 @@
+.github-logo {
+    color: white;
+    margin-right: 8px;
+    background-color: white;
+    mask-image: url("https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg")
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+}
+
+.content {
+    margin: 20px 100px 0px 100px
+}
+
+.example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+    color: white;
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: calc(100vh - 250px);
+}
+
+.mat-header-cell.mat-sort-header-sorted {
+    color: black;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+.fab {
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
+}

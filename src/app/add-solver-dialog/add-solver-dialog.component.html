@@ -1,0 +1,28 @@
+<h2 mat-dialog-title> Add solver </h2>
+<form (keyup.enter)="addSolver()" (ngSubmit)="addSolver()" [formGroup]="addSolverForm">
+    <div style="display: flex;">
+        <mat-form-field class="example-full-width">
+            <input autocomplete="off" formControlName="solver" matInput placeholder="Timus id" [errorStateMatcher]="matcher">
+            <mat-hint>Ex: 129589</mat-hint>
+            <mat-error *ngIf="!addSolverForm.controls.solver.errors?.required">
+                ID not found on acm.timus.ru
+            </mat-error>
+            <mat-error *ngIf="addSolverForm.controls.solver.errors?.required">
+                ID is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <span class="fill-remaining-space"></span>
+        <mat-form-field class="example-full-width">
+            <input autocomplete="off" matInput placeholder="Name" formControlName="name" [errorStateMatcher]="matcher">
+            <mat-hint>Ex: NurlashKO</mat-hint>
+            <mat-error *ngIf="addSolverForm.controls.name.errors?.required">
+                Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <mat-dialog-actions>
+        <span class="fill-remaining-space"></span>
+        <button tabindex=-1 mat-button mat-dialog-close> CLOSE </button>
+        <button type="submit" mat-button [disabled]="addSolverForm.controls.solver.errors"> ADD </button>
+    </mat-dialog-actions>
+</form>
