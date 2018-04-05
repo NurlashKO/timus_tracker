@@ -45,6 +45,12 @@ footer {
     text-align: center;
 }
 
+@media (max-width: 550px) {
+    .content {
+        margin: 20px 10px 0px 10px
+    }
+}
+
 .fill-remaining-space {
     flex: 1 1 auto;
 }
