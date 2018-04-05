@@ -18,7 +18,7 @@ export class AppComponent {
   constructor(public dialog: MatDialog, db: AngularFireDatabase) {
     this.items = db.list('solvers').valueChanges();
     this.items.subscribe(data => {
-      data.sort((a, b) => a.solved > b.solved? 0: 1)
+      data.sort((a, b) => (a.solved > b.solved) ? -1: 1)
         .map((a, index) => a.id = index+1);
       this.dataSource.data = data;
     })
